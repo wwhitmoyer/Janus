@@ -118,9 +118,9 @@ void loop()
   }
 
     while(serverClient.available()) {  // get data from Client
-    //Serial.write(serverClient.read());
-    message = serverClient.read();
-    Serial.println(message);
+    Serial.write(serverClient.read());
+    //message = serverClient.read();
+    //Serial.println(message);
   }
 
   if (message == "poll") { // run every 2000 ms
