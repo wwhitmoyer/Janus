@@ -22,10 +22,11 @@ CA control authority to
 0x02-Login
 0x03-CARD ADD
 0x04-Clear
-0x05-Formats
+0x05-Formats ADD
 0x06-Get CARD ID LIST
 0x07-HeartBeat
 0x08-CARD Remove
+0x09-Formats Remove
 
 Node to Server
 0x01-Heart beat ( allows for auto detection )
@@ -38,8 +39,11 @@ Node to Server
 *Server to Node
 0x03-CARD ADD: CARD DATA 4-8 bytes
 0x04-Clear: 0x1;Clear card, 0x2;Clear config, 0x3;Clear both
-0x08-CARD Remove: CARD DATA 4-8 bytes
+0x05-Formats ADD: CARD ID MASK in hex
+0x06-Get CARD ID LIST: ?blank data field?
 0x07-HeartBeat: UTC as HEX 4bits wraped in data field
+0x08-CARD Remove: CARD DATA 4-8 bytes
+0x09-Formats Remove: CARD ID MASK in hex
 
 *Node to Server
 0x01-HeartBeat: UTC as HEX 4bits wraped in data field
