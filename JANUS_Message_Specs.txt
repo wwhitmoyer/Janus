@@ -11,7 +11,7 @@ LRC
 
 Behaviors
 -response to valid message is heartbeat, no response to invalid message
--heartbeat response is heartbeat
+-heartbeat response is not heartbeat ( stop endless loop ) 
 
 
 command def
@@ -19,7 +19,7 @@ Server to Node
 CA control authority to 
 (( Node response to valid message is heartbeat ))
 0x01-config
-0x02-Time
+0x02-Login
 0x03-CARD ADD
 0x04-Clear
 0x05-Formats
@@ -29,9 +29,17 @@ CA control authority to
 
 Node to Server
 0x01-Heart beat ( allows for auto detection )
-0x02-Hist
+0x02-History
 0x03-SEND CARD ID LIST
 -32bit UTC universal time constant 
 
 
-Command 
+[Command]
+*Server to Node
+0x03-CARD ADD: CARD DATA 4-8 bytes
+0x04-Clear: 0x1;Clear card, 0x2;Clear config, 0x3;Clear both
+0x08-CARD Remove: CARD DATA 4-8 bytes
+0x07-HeartBeat: UTC as HEX 4bits wraped in data field
+
+*Node to Server
+0x01-HeartBeat: UTC as HEX 4bits wraped in data field
