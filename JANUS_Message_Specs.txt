@@ -1,0 +1,37 @@
+*** Janus Project ***
+** Message Specs **
+
+Message Def
+<stx>: 0x02
+<length>: 0x1-0xFF length in bytes of the data
+<cmd>: 0x1-0xFF Defined in command def
+<data>: 
+<etx>: 0x03
+LRC
+
+Behaviors
+-response to valid message is heartbeat, no response to invalid message
+-heartbeat response is heartbeat
+
+
+command def
+Server to Node
+CA control authority to 
+(( Node response to valid message is heartbeat ))
+0x01-config
+0x02-Time
+0x03-CARD ADD
+0x04-Clear
+0x05-Formats
+0x06-Get CARD ID LIST
+0x07-HeartBeat
+0x08-CARD Remove
+
+Node to Server
+0x01-Heart beat ( allows for auto detection )
+0x02-Hist
+0x03-SEND CARD ID LIST
+-32bit UTC universal time constant 
+
+
+Command 
